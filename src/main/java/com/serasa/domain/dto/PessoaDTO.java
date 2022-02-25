@@ -7,7 +7,7 @@ import java.util.Date;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.serasa.domain.Pessoa;
 
-public class PessoaDTO implements Serializable{
+public class PessoaDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Long id;
 	@JsonFormat(pattern = "dd/MM/yyyy")
@@ -18,7 +18,7 @@ public class PessoaDTO implements Serializable{
 	private String cidade;
 	private String estado;
 	private String regiao;
-	
+
 	public PessoaDTO() {
 		super();
 	}
@@ -98,13 +98,5 @@ public class PessoaDTO implements Serializable{
 	public void setRegiao(String regiao) {
 		this.regiao = regiao;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
 
 }
