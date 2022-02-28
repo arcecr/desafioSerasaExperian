@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.serasa.domain.Score;
 
 public class ScoreDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
@@ -24,6 +25,14 @@ public class ScoreDTO implements Serializable{
 		this.scoreDescricao = scoreDescricao;
 		this.scoreInicial = scoreInicial;
 		this.scoreFinal = scoreFinal;
+	}
+	
+	public ScoreDTO(Score score) {
+		super();
+		this.id = score.id;
+		this.scoreDescricao = score.getScoreDescricao();
+		this.scoreInicial = score.getScoreInicial();
+		this.scoreFinal = score.getScoreFinal();	
 	}
 
 	public Long getId() {

@@ -36,11 +36,11 @@ public class AfenidadeService {
 		return afenidade;
 	}
 	
-	public void setListEstados(List<Estado> estados, Afenidade afenidade) {
-		estados.forEach(x -> x.setAfenidade(afenidade));
-	}
-
 	public List<Afenidade> findAll() {
 		return afenidadeRepository.findAll();
+	}
+	
+	public void setListEstados(List<Estado> estados, Afenidade afenidade) {
+		estados.forEach(x -> x.setAfenidade(afenidade));
 	}
 }
