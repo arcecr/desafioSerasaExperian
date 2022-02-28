@@ -21,7 +21,7 @@ public class Score implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Long id;
 	private String scoreDescricao;
-	@Column(name = "inical")
+	@Column(name = "inicial")
 	private Integer scoreInicial;
 	@Column(name = "final")
 	private Integer scoreFinal;

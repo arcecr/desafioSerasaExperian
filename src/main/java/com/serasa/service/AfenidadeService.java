@@ -12,6 +12,7 @@ import com.serasa.domain.Afenidade;
 import com.serasa.domain.Estado;
 import com.serasa.repository.AfenidadeRepository;
 import com.serasa.repository.EstadoRepository;
+import com.serasa.service.exception.ObjectNotFoundException;
 
 @Service
 public class AfenidadeService {

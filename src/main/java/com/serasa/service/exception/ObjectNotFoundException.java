@@ -1,4 +1,4 @@
-package com.serasa.service;
+package com.serasa.service.exception;
 
 public class ObjectNotFoundException extends RuntimeException{
 	private static final long serialVersionUID = 1L;

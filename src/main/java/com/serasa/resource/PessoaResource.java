@@ -27,15 +27,13 @@ public class PessoaResource {
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<PessoaDTO> findByID(@PathVariable Long id){
-		Pessoa pessoa = pessoaService.findById(id);
-		return ResponseEntity.ok().body(new PessoaDTO(pessoa));
+		PessoaDTO pessoaDTO = pessoaService.findById(id);
+		return ResponseEntity.ok().body(pessoaDTO);
 	}
 	
 	@GetMapping
 	public ResponseEntity<List<PessoaDTO>> findAll(){
-		List<Pessoa> listPessoa = pessoaService.findAll();
-		List<PessoaDTO> listPessoaDTO = listPessoa.stream().map(
-				                        obj -> new PessoaDTO(obj)).collect(Collectors.toList());
+		List<PessoaDTO> listPessoaDTO = pessoaService.findAll();
 		return ResponseEntity.ok().body(listPessoaDTO);
 	}
 	

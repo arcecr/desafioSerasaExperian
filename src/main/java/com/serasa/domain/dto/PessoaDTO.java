@@ -2,9 +2,11 @@ package com.serasa.domain.dto;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.Date;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.serasa.domain.Estado;
 import com.serasa.domain.Pessoa;
 
 public class PessoaDTO implements Serializable {
@@ -17,7 +19,13 @@ public class PessoaDTO implements Serializable {
 	private Integer idade;
 	private String cidade;
 	private String estado;
+	@JsonIgnore
 	private String regiao;
+	@JsonIgnore
+	private Integer score;
+	
+	private String scoreDescricao;
+	private List<String> estados;
 
 	public PessoaDTO() {
 		super();
@@ -33,6 +41,7 @@ public class PessoaDTO implements Serializable {
 		this.cidade = obj.getCidade();
 		this.estado = obj.getEstado();
 		this.regiao = obj.getRegiao();
+		this.score = obj.getScore();
 	}
 
 	public Long getId() {
@@ -98,5 +107,35 @@ public class PessoaDTO implements Serializable {
 	public void setRegiao(String regiao) {
 		this.regiao = regiao;
 	}
+
+	public Integer getScore() {
+		return score;
+	}
+
+	public void setScore(Integer score) {
+		this.score = score;
+	}
+
+	public String getScoreDescricao() {
+		return scoreDescricao;
+	}
+
+	public void setScoreDescricao(String scoreDescricao) {
+		this.scoreDescricao = scoreDescricao;
+	}
+
+	public List<String> getEstados() {
+		return estados;
+	}
+
+	public void setEstados(List<String> estados) {
+		this.estados = estados;
+	}
+	
+	
+	
+	
+	
+	
 
 }

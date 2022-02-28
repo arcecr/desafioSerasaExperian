@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.serasa.domain.Score;
 import com.serasa.repository.ScoreRepository;
+import com.serasa.service.exception.ObjectNotFoundException;
 
 @Service
 public class ScoreService {

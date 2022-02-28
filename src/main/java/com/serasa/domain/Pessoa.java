@@ -1,5 +1,6 @@
 package com.serasa.domain;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.Objects;
@@ -12,7 +13,9 @@ import javax.persistence.Id;
 import com.serasa.domain.dto.PessoaDTO;
 
 @Entity
-public class Pessoa {
+public class Pessoa implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -22,6 +25,7 @@ public class Pessoa {
 	private Integer idade;
 	private String cidade;
 	private String estado;
+	private Integer score;
 	private String regiao;
 
 	public Pessoa() {
@@ -29,7 +33,7 @@ public class Pessoa {
 	}
 
 	public Pessoa(Long id, LocalDate dataInclusao, String nome, String telefone, Integer idade, String cidade, String estado,
-			String regiao) {
+			String regiao, Integer score) {
 		super();
 		this.id = id;
 		this.dataInclusao = dataInclusao;
@@ -39,6 +43,7 @@ public class Pessoa {
 		this.cidade = cidade;
 		this.estado = estado;
 		this.regiao = regiao;
+		this.score = score;
 	}
 	
 	public Pessoa(PessoaDTO obj) {
@@ -115,6 +120,16 @@ public class Pessoa {
 
 	public void setRegiao(String regiao) {
 		this.regiao = regiao;
+	}
+	
+	
+
+	public Integer getScore() {
+		return score;
+	}
+
+	public void setScore(Integer score) {
+		this.score = score;
 	}
 
 	@Override
