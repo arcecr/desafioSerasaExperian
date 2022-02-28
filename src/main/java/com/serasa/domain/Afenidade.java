@@ -1,8 +1,11 @@
 package com.serasa.domain;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,13 +15,15 @@ import javax.persistence.OneToMany;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.serasa.domain.dto.AfenidadeDTO;
 @Entity
-public class Afenidade {
+public class Afenidade implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String regiao;
 	@JsonIgnore
-	@OneToMany(mappedBy = "afenidade")
+	@OneToMany(mappedBy = "afenidade", cascade=CascadeType.ALL)
 	private List<Estado> estados = new ArrayList<>();
 
 	public Afenidade() {
@@ -61,5 +66,23 @@ public class Afenidade {
 		this.regiao = regiao;
 	}
 
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Afenidade other = (Afenidade) obj;
+		return Objects.equals(id, other.id);
+	}
+
+	
 	
 }

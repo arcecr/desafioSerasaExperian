@@ -29,7 +29,10 @@ public class AfenidadeResource {
 	}
 	@PostMapping
 	public ResponseEntity<Afenidade> create(@RequestBody AfenidadeDTO afenidadeDTO){
-		Afenidade afenidade = afenidadeService.create(afenidadeDTO);
+		System.out.print(afenidadeDTO);
+		Afenidade afenidade = new Afenidade(afenidadeDTO);
+
+		afenidade = afenidadeService.create(afenidade);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("{id}").buildAndExpand(afenidade.getId()).toUri();
 		return ResponseEntity.created(uri).build();
 	}

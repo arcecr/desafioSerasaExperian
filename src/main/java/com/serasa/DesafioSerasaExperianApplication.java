@@ -32,10 +32,11 @@ public class DesafioSerasaExperianApplication implements CommandLineRunner {
 		Estado est2 = new Estado(null,"MG",afenidade);
 		estados.add(est1);
 		estados.add(est2);
+		afenidade.getEstados().addAll(estados);
 		
-
+		//estadoRespository.saveAll(estados);
+		
 		afenidadeRespository.save(afenidade);
-		estadoRespository.saveAll(estados);
 		
 	}
 }
